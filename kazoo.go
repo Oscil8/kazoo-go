@@ -67,8 +67,8 @@ type Config struct {
 func NewConfig() *Config {
 	return &Config{
 		Protocol: "",
-		Timeout: 1 * time.Second,
-		Logger:  zk.DefaultLogger,
+		Timeout:  1 * time.Second,
+		Logger:   zk.DefaultLogger,
 	}
 }
 
@@ -122,7 +122,7 @@ func (kz *Kazoo) Brokers() (map[int32]string, error) {
 	}
 
 	result := make(map[int32]string)
-	children:
+children:
 	for _, child := range children {
 		brokerID, err := strconv.ParseInt(child, 10, 32)
 		if err != nil {
